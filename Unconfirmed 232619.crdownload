@@ -1,0 +1,150 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# # Curso de Métodos Intensivos de Computación Estadística
+
+# ## Practica 1
+
+# En esta práctica, vamos a escribir una función (script) para hacer la gráfica de la función:
+# 
+# $$ y=\sin x $$
+# 
+# Si desea información teórica sobre esta función. puede consultar en el siguiente enlace de <a href="https://es.wikipedia.org/wiki/Seno_(trigonometr%C3%ADa)#Definici%C3%B3n"> Wikipedia</a>.
+# 
+# A continuación mostramos una imagen que muestra cómo se ve esta función:
+# ![Función Seno](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Sine.svg/1920px-Sine.svg.png)
+# 
+# Así como un video con sus propiedades:
+
+# In[79]:
+
+
+from IPython.display import YouTubeVideo
+
+video_seno = YouTubeVideo('JwGW8YyNp4M')
+
+display(video_seno)
+
+
+# Ahora, para la construcción de la función (script) que grafique la función seno, procedemos comos siguie:
+
+# **1.** Importamos las librerias que vamos a utilizar
+
+# In[80]:
+
+
+import numpy as np 
+import matplotlib.pyplot as plt 
+
+
+# **2.** Constuimos una función $f(x)$ que nos devuelva el valos de $\sin x$ para un $x \in \mathbb R$ dado.
+
+# In[81]:
+
+
+def f(x):
+    return(np.sin(x))
+
+
+# **3.** Definimos el intervalo en el cual queremos graficar la función
+
+# In[82]:
+
+
+limite_inferior=-2*np.pi
+limite_superior=2*np.pi
+
+
+# **4.** Así, generamos el gráfico de la función que acabamos de definir en los límites establecidos.
+
+# In[83]:
+
+
+x = np.arange(limite_inferior,limite_superior,0.01)
+y = f(x)
+
+
+# In[84]:
+
+
+plt.figure(figsize=(15, 5))
+plt.plot(x,y,color="orange",label='y=sin(x)',linewidth=3)
+plt.plot(x,y*0,color="black")
+plt.xlabel('x')
+plt.ylabel('sin(x)')
+plt.title('Función Seno')
+plt.grid(color='b', linestyle='--', linewidth=.5)
+plt.legend()
+plt.show()
+
+
+# Análogamente, procederemos a construir la gráfica de la función $\cos x$:
+
+# In[85]:
+
+
+def g(x):
+    return(np.cos(x))
+
+
+# In[86]:
+
+
+x = np.arange(limite_inferior,limite_superior,0.01)
+z = g(x)
+
+
+# In[87]:
+
+
+plt.figure(figsize=(15, 5))
+plt.plot(x,z,color="Red",label='y=cos(x)',linewidth=3)
+plt.plot(x,y*0,color="black")
+plt.xlabel('x')
+plt.ylabel('cos(x)')
+plt.title('Función coseno')
+plt.grid(color='b', linestyle='--', linewidth=.5)
+plt.legend()
+plt.show()
+
+
+# Así mismo, a continuación se puede encontrar documentación sobre la función [coseno](https://es.wikipedia.org/wiki/Coseno), así como un video sobre sus propiedades:
+
+# In[88]:
+
+
+from IPython.display import YouTubeVideo
+
+video_coseno = YouTubeVideo('7Zef_6kdOzs')
+
+display(video_coseno)
+
+
+# Finalmente, procedemos con una gráfica conjunta de ambas funciones (Seno y Coseno):
+
+# In[89]:
+
+
+plt.figure(figsize=(15, 5))
+plt.plot(x,z,color="Red",label='y=cos(x)',linewidth=3)
+plt.plot(x,y,color="orange",label='y=sin(x)',linewidth=3)
+plt.plot(x,y*0,color="black")
+plt.xlabel('x')
+plt.ylabel('cos(x)')
+plt.title('Función coseno')
+plt.grid(color='b', linestyle='--', linewidth=.5)
+plt.legend()
+plt.show()
+
+
+# Por supuesto, acompañamos esta gráfica con su respectiva <a href="https://en.wikipedia.org/wiki/Sine_and_cosine"> documentación</a>, así como un video con relaciones interesantes acerca de estas dos funciones:
+
+# In[90]:
+
+
+seno_y_coseno = YouTubeVideo('XH3htlWU9N4')
+
+display(seno_y_coseno)
+
+
+# <img src="https://poster.keepcalmandposters.com/default/6156900_keep_happy_and_hope_you_have_learned_something.png">
